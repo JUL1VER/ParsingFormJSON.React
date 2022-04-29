@@ -2,16 +2,17 @@ class LocalStoreService {
     myStorage = window.localStorage;
 
     setInfo = (arr) => {
-        arr.sort((value1, value2) => {
-            if (+value1.id < +value2.id) {
+
+        arr.sort((elem1, elem2) => {
+            if (+elem1.id < +elem2.id) {
                 return -1;
             }
-            if (+value1.id > +value2.id) {
+            if (+elem1.id > +elem2.id) {
                 return 1;
             }
             return 0;
         })
-        
+
         arr.forEach((oneArr) => {
             this.myStorage.setItem(oneArr.id, JSON.stringify({...oneArr}))
             console.log(this.myStorage)

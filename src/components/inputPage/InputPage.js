@@ -17,13 +17,13 @@ const InputPage = () => {
     console.log(service.getInfoFromStorage());
 
     return (
-        <>
+        <div className="inputPageWrapper">
             <div>
                 <textarea className='jsontext' onChange={(e) => parseData = e.target.value}>
                 </textarea>
             </div>
             <button className="saveData" onClick={parsText}>Сохранить</button>
-        </>  
+        </div>    
     );
 };
 

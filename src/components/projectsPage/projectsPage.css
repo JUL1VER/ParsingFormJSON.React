@@ -1,15 +1,19 @@
 .dataBlock{
     width: 300px;
-    height: 800px;
+    height: 100%;
     border: 1px solid black;
     margin: 0 auto;
     margin-top: 100px;
+    border-bottom: 0px;
 }
 
 .dataList{
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-bottom: 0px;
 }
 
 .oneBlock{
