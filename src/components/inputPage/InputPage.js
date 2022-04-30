@@ -1,12 +1,13 @@
 import React from 'react';
 import './inputPage.css';
 import LocalStoreService from '../service/servise';
+import * as defJSON from '../../constants/defaultJSON.json';
 
 const InputPage = () => {
 
     const service = new LocalStoreService();
 
-    let parseData = '';
+    let parseData = JSON.stringify(defJSON);
 
     const parsText = () => {
         const parsedData = JSON.parse(parseData);
@@ -19,7 +20,7 @@ const InputPage = () => {
     return (
         <div className="inputPageWrapper">
             <div>
-                <textarea className='jsontext' onChange={(e) => parseData = e.target.value}>
+                <textarea defaultValue={parseData} className='jsontext' onChange={(e) => parseData = e.target.value}>
                 </textarea>
             </div>
             <button className="saveData" onClick={parsText}>Сохранить</button>

@@ -14,7 +14,7 @@ class LocalStoreService {
         })
 
         arr.forEach((oneArr) => {
-            this.myStorage.setItem(oneArr.id, JSON.stringify({...oneArr}))
+            this.myStorage.setItem(+oneArr.id, JSON.stringify({...oneArr}))
             console.log(this.myStorage)
         })
     }

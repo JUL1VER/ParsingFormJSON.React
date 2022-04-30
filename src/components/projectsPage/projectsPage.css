@@ -67,6 +67,8 @@
 
 .projectName{
     font-size: 25px;
+    width: 50%;
+    height: 50px;
 }
 
 .wrapperBlockInfo{
@@ -75,6 +77,7 @@
     justify-content: space-between;
     margin-top: 5%;
     font-size: 20px;
+    height: 90px;
 }
 
 .blockStartDate{
@@ -105,6 +108,20 @@
 .changeInfo{
     width: 30%;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 10%;
     font-size: 25px;
+}
+
+.inputProject{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.inputDate{
+    font-size: 20px;
+    letter-spacing: -2px;
+}
+
+.inputInfoChange{
+    font-size: 20px;
 }

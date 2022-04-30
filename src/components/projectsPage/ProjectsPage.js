@@ -7,7 +7,15 @@ import { monthMap } from '../../constants/monthMap';
 const ProjectsPage = () => {
     const data = new LocalStoreService();
 
-    const getData = data.getInfoFromStorage()
+    let getData = data.getInfoFromStorage().sort((elem1, elem2) => {
+        if (+elem1.id < +elem2.id) {
+            return -1;
+        }
+        if (+elem1.id > +elem2.id) {
+            return 1;
+        }
+        return 0;
+    })
 
     const toNormalDate = (date) => {
         const normalDate = new Date(date)
@@ -19,7 +27,8 @@ const ProjectsPage = () => {
         return stringNormalDate
     }
 
-    const [detailedData, setDetailedData] = React.useState({subject: getData[0].subject, 
+    const [detailedData, setDetailedData] = React.useState({id: getData[0].id,
+                                                            subject: getData[0].subject, 
                                                             startDate: getData[0].startDate, 
                                                             endDate: getData[0].endDate,
                                                             createdBy: getData[0].createdBy,
@@ -30,8 +39,42 @@ const ProjectsPage = () => {
         
         setDetailedData(...selected);
     }
+
+    const [inputInfoChange, setInputInfoChange, saveInputInfoChange] = React.useState(true);
+
+    const saveInfo = (e) => {
+        if (!inputInfoChange) {
+            setDetailedData((prevState) => {
+                const sendData = {id: prevState.id,
+                subject: infoTitle.length ? infoTitle : prevState.subject,
+                startDate: infoStartDate != null ? infoStartDate : prevState.startDate,
+                endDate: infoEndDate != null ? infoEndDate : prevState.endDate,
+                createdBy: infoPerson.length ? infoPerson : prevState.createdBy,
+                description: infoDescr.length ? infoDescr : prevState.description}
+                data.setInfo([sendData])
+                getData = data.getInfoFromStorage().sort((elem1, elem2) => {
+                    if (+elem1.id < +elem2.id) {
+                        return -1;
+                    }
+                    if (+elem1.id > +elem2.id) {
+                        return 1;
+                    }
+                    return 0;
+                })
+                dataArr();
+                return sendData;
+            })
+        }
+        setInputInfoChange(!inputInfoChange)
+    }
+
+    let infoTitle = '';
+    let infoStartDate = null;
+    let infoEndDate = null;
+    let infoPerson = '';
+    let infoDescr = '';
     
-    const dataArr = getData.map((value) => {
+    const dataArr = () => getData.map((value) => {
         
         const startDate = new Date(value.startDate);
         const endDate = new Date(value.endDate);
@@ -53,18 +96,52 @@ const ProjectsPage = () => {
         <div className="projectPageWrapper">
             <div className='dataBlock'>
                 <ul className='dataList'>
-                    {dataArr}
+                    {dataArr()}
                 </ul>
             </div>
             <div className="projectInfo">
-                <div className="projectName">{detailedData.subject}</div>
+                {
+                    inputInfoChange ? 
+                    <div className="projectName">{detailedData.subject}</div> :
+                    <input type="text" defaultValue={detailedData.subject} onChange={(e) => {infoTitle = e.target.value}} className="inputProject"/>
+                }
                 <div className="wrapperBlockInfo">
-                    <div className="blockStartDate">Дата начала <span className="startText">{toNormalDate(detailedData.startDate)}</span></div>
-                    <div className="blockEndDate">Дата окончания<span className="endText">{toNormalDate(detailedData.endDate)}</span></div>
-                    <div className="blockPerson">Автор <span className="personText">{detailedData.createdBy}</span></div>
+                    <div className="blockStartDate">
+                        Дата начала 
+                        {
+                            inputInfoChange ? 
+                            <span className="startText">{toNormalDate(detailedData.startDate)}</span> : 
+                            <input type="datetime-local" defaultValue={detailedData.startDate} onChange={(e) => {infoStartDate = e.target.value}} className="inputDate"/>
+                        }
+                    </div>
+                    <div className="blockEndDate">
+                        Дата окончания
+                        {
+                            inputInfoChange ? 
+                            <span className="endText">{toNormalDate(detailedData.endDate)}</span> : 
+                            <input type="datetime-local" defaultValue={detailedData.endDate} onChange={(e) => {infoEndDate = e.target.value}}className="inputDate"/>
+                        }
+                    </div>
+                    <div className="blockPerson">
+                        Автор 
+                        {
+                            inputInfoChange ? 
+                            <span className="personText">{detailedData.createdBy}</span> : 
+                            <textarea type="text" defaultValue={detailedData.createdBy} onChange={(e) => {infoPerson = e.target.value}} className="inputInfoChange"/>
+                        }
+                    </div>
                 </div>
-                <div className="description">Описание <span className="descrText">{detailedData.description}</span></div>
-                <button className="changeInfo">Изменить</button>
+                <div className="description">
+                    Описание 
+                    {
+                        inputInfoChange ? 
+                        <span className="descrText">{detailedData.description}</span> : 
+                        <textarea defaultValue={detailedData.description} onChange={(e) => {infoDescr = e.target.value}} className="inputInfoChange"/>
+                    }
+                </div>
+                <button className="changeInfo" onClick={() => saveInfo()}>
+                    {inputInfoChange ? 'Изменить' : 'Сохранить'}
+                </button>
             </div>
         </div>
     );
