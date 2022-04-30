@@ -20,7 +20,7 @@ const ProjectsPage = () => {
     const toNormalDate = (date) => {
         const normalDate = new Date(date)
         const day = normalDate.getDate().toString().length < 2 ? '0' + normalDate.getDate() : normalDate.getDate()
-        const month = normalDate.getMonth().toString().length < 2 ? '0' + normalDate.getMonth() : normalDate.getMonth()
+        const month = (normalDate.getMonth()+1).toString().length < 2 ? '0' + (normalDate.getMonth()+1) : (normalDate.getMonth()+1)
         
         const stringNormalDate = day + '.' + month + '.' + normalDate.getFullYear()
 
@@ -40,7 +40,7 @@ const ProjectsPage = () => {
         setDetailedData(...selected);
     }
 
-    const [inputInfoChange, setInputInfoChange, saveInputInfoChange] = React.useState(true);
+    const [inputInfoChange, setInputInfoChange] = React.useState(true);
 
     const saveInfo = (e) => {
         if (!inputInfoChange) {
@@ -79,7 +79,7 @@ const ProjectsPage = () => {
         const startDate = new Date(value.startDate);
         const endDate = new Date(value.endDate);
 
-        const startDateString = startDate.getDate() + ' ' + monthMap.get(startDate.getMonth()) + ' ' + startDate.getFullYear() + ' - ' +
+        const startDateString = startDate.getDate() + ' ' + monthMap.get(startDate.getMonth())  + ' ' + startDate.getFullYear() + ' - ' +
                                 endDate.getDate() + ' ' + monthMap.get(endDate.getMonth()) + ' ' + endDate.getFullYear();
 
 
