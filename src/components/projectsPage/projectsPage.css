@@ -122,10 +122,10 @@
     letter-spacing: -2px;
 }
 
-.inputInfoChange{
-    font-size: 20px;
-}
-
 .descrText{
     height: 52px;
+}
+
+.inputInfoChange{
+    font-size: 20px;
 }

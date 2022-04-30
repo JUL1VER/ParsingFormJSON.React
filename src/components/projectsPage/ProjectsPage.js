@@ -82,7 +82,6 @@ const ProjectsPage = () => {
         const startDateString = startDate.getDate() + ' ' + monthMap.get(startDate.getMonth())  + ' ' + startDate.getFullYear() + ' - ' +
                                 endDate.getDate() + ' ' + monthMap.get(endDate.getMonth()) + ' ' + endDate.getFullYear();
 
-
         return(
             <li className='oneBlock' key={value.id} onClick={() => filterData(value.id)}>
                 <div className="dateBlock">{startDateString}</div>
