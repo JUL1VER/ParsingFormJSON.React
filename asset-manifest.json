@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ParsingFormJSON.React/static/css/main.a3dfabbb.css",
-    "main.js": "/ParsingFormJSON.React/static/js/main.e7d09019.js",
+    "main.js": "/ParsingFormJSON.React/static/js/main.29331525.js",
     "index.html": "/ParsingFormJSON.React/index.html",
     "main.a3dfabbb.css.map": "/ParsingFormJSON.React/static/css/main.a3dfabbb.css.map",
-    "main.e7d09019.js.map": "/ParsingFormJSON.React/static/js/main.e7d09019.js.map"
+    "main.29331525.js.map": "/ParsingFormJSON.React/static/js/main.29331525.js.map"
   },
   "entrypoints": [
     "static/css/main.a3dfabbb.css",
-    "static/js/main.e7d09019.js"
+    "static/js/main.29331525.js"
   ]
 }
