@@ -1,3 +1,7 @@
+Данный проект написан на React.
+
+Представляет из себя две странички, первая - ввод данных в формате JSON (уже есть в defaultValue). Вторая - структурированное представление полученных данных, возможность их редакторования.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
