@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://jul1ver.github.io/ParsingFormJSON.React",
+  "homepage": "https://jul1ver.github.io/ParsingFormJSON.React/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
