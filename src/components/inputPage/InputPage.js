@@ -11,11 +11,8 @@ const InputPage = () => {
 
     const parsText = () => {
         const parsedData = JSON.parse(parseData);
-        console.log(parsedData.Projects);
         service.setInfo(parsedData.Projects);
     }
-
-    console.log(service.getInfoFromStorage());
 
     return (
         <div className="inputPageWrapper">

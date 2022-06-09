@@ -19,14 +19,6 @@ class LocalStoreService {
         })
     }
 
-    // getInfoFromStorage = () => {
-    //     const parsedArr = [];
-    //     for (let i = 1; i <= this.myStorage.length; i++) {
-    //         parsedArr.push(JSON.parse(this.myStorage.getItem(i)))
-    //     }
-    //     return parsedArr;
-    // }
-
     getInfoFromStorage = () => {
         return Object.values(this.myStorage).map((value) => JSON.parse(value))
     }
