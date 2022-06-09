@@ -9,7 +9,7 @@ function App() {
     <Router>
       <AppHeader/>
       <Routes>
-          <Route exact path="/" element={<InputPage/>}/>
+          <Route exact path="ParsingFormJSON.React/" element={<InputPage/>}/>
           <Route exact path="/projectsPage" element={<ProjectsPage/>}/>
       </Routes>
     </Router>
