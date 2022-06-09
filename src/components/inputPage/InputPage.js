@@ -14,6 +14,8 @@ const InputPage = () => {
         service.setInfo(parsedData.Projects);
     }
 
+    parsText();
+
     return (
         <div className="inputPageWrapper">
             <div>
@@ -21,7 +23,7 @@ const InputPage = () => {
                 </textarea>
             </div>
             <button className="saveData" onClick={parsText}>Сохранить</button>
-        </div>    
+        </div>
     );
 };
 
